@@ -25,7 +25,6 @@ def get_player_score():
     else:
         print("Your hand of two cards has a total value of ", player_score, ".", sep="")
 
-   
         # Prompt player if they want to draw another card
         player_response = input("Would you like to take another card? (y/n) ")
 
@@ -42,8 +41,6 @@ def get_player_score():
         while player_response == 'y':
 
             # Draw another card, loop
-
-            # Deal new card
             new_player_card = deal_card()
 
             # New sum
@@ -57,7 +54,7 @@ def get_player_score():
                 return player_score
             else:
 
-            # Ask if the player wants to draw another card
+                # Ask if the player wants to draw another card
                 player_response = input("Would you like to take another card? (y/n) ")
         return player_score
 
@@ -75,11 +72,8 @@ def get_dealer_score():
     while dealer_score < 16:
         another_dealer_card = deal_card()
         dealer_score += another_dealer_card
-        return dealer_score
+    return dealer_score
 
-    else:
-        # If more than 21, return dealer score
-        return dealer_score
 
 # Set main function
 def main():
@@ -106,6 +100,7 @@ def main():
         print("** You win! **")
 
     else:
+
         # Dealer wins with higher score than player but does not bust
         print("The dealer was dealt a hand with a value of ", dealer_score, ".", sep="")
         if dealer_score >= player_score:
@@ -124,8 +119,7 @@ def main():
     if player_response_to_playing_again == 'y':
         main()
 
-    # If no, end program.
+    # If no, end program!
    
-
 # Call main function     
 main()
