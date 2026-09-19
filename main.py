@@ -1,4 +1,4 @@
-# Did not use AI or other resources to write code, but did use the AI accompanying VS Code to check work
+# Did not use AI or other resources to write code, but did use the AI accompanying VS Code to check work, but did not make any changes
 
 import random
 
@@ -41,20 +41,24 @@ def get_player_score():
         # If yes, deal another card, while loop    
         while player_response == 'y':
 
-            # Get rid of first value of the first draw and set the second draw to the variable of the first draw
-            player_card_1 = player_card_2
+            # Draw another card, loop
 
             # Deal new card
-            player_card_2 = deal_card()
+            new_player_card = deal_card()
 
             # New sum
-            player_score = player_card_1 + player_card_2
+            player_score += new_player_card
 
             # Print new sum
             print(" Your hand is now now has a total value of ", player_score, ".", sep="")
 
+            # If player busts, return function
+            if player_score > 21:
+                return player_score
+            else:
+
             # Ask if the player wants to draw another card
-            player_response = input("Would you like to take another card? (y/n) ")
+                player_response = input("Would you like to take another card? (y/n) ")
         return player_score
 
 # Set function for calculating the dealer score
@@ -120,7 +124,7 @@ def main():
     if player_response_to_playing_again == 'y':
         main()
 
-    # If no, end program
+    # If no, end program.
    
 
 # Call main function     
